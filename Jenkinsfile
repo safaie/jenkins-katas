@@ -15,22 +15,22 @@ pipeline {
           }
         }
 
-#        stage('build app') {
-#          agent {
-#            docker {
-#              image 'gradle:jdk11'
-#            }
-#
-#          }
-#          options {
-#            skipDefaultCheckout()
-#          }
-#          steps {
-#            unstash 'code'
-#            sh 'ci/build-app.sh'
-#            archiveArtifacts 'app/build/libs/'
-#          }
-#        }
+        stage('build app') {
+          agent {
+            docker {
+              image 'gradle:jdk11'
+            }
+
+          }
+          options {
+            skipDefaultCheckout()
+          }
+          steps {
+            unstash 'code'
+            sh 'ci/build-app.sh'
+            archiveArtifacts 'app/build/libs/'
+          }
+        }
 
         stage('test app') {
           agent {
