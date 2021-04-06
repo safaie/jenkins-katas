@@ -20,6 +20,11 @@ pipeline {
           steps {
             sh 'ci/build-app.sh'
             archiveArtifacts 'app/build/libs/'
+            echo "before workspace deletion"
+            sh 'ls -alFh'
+            deleteDir()
+            echo "after workspace deletion"
+            sh 'ls -alFh'
           }
         }
 
