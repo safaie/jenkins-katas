@@ -16,12 +16,14 @@ pipeline {
             }
 
           }
-          steps {
-            sh '''unstash \'code\'
-sh \'ci/build-app.sh\'
-archiveArtifacts \'app/build/libs/\''''
+          options {
+            skipDefaultCheckout()
           }
-        }
+          steps {
+            unstash 'code'
+            sh 'ci/build-app.sh'
+            archiveArtifacts 'app/build/libs/'
+          }
 
         stage('test app') {
           agent {
@@ -30,10 +32,13 @@ archiveArtifacts \'app/build/libs/\''''
             }
 
           }
+          options {
+            skipDefaultCheckout()
+          }
           steps {
-            sh '''unstash \'code\'
-sh \'ci/unit-test-app.sh\'
-junit \'app/build/test-results/test/TEST-*.xml\''''
+            unstash 'code'
+            sh 'ci/unit-test-app.sh'
+            junit 'app/build/test-results/test/TEST-*.xml'
           }
         }
 
