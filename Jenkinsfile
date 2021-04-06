@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('clone down'){
+      agent {
+        node {
+          label 'swarm'
+      }
     stage('Say Hello') {
       parallel {
         stage('Say Hello') {
