@@ -2,14 +2,10 @@ pipeline {
   agent any
   stages {
     stage('clone down'){
-      agent {
-        node {
-          label 'swarm'
-      }
+      agent { label 'swarm' }
         steps {
           stash excludes: '.git', name: 'code'
         }
-      }
     stage('Say Hello') {
       parallel {
         stage('Say Hello') {
