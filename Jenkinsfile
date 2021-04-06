@@ -4,6 +4,7 @@ pipeline {
     stage('Say Hello') {
       parallel {
         stage('Say Hello') {
+          agent any
           steps {
             sh 'echo "Hello World!"'
           }
