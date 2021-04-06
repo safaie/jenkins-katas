@@ -6,6 +6,7 @@ pipeline {
       steps {
           stash excludes: '.git', name: 'code'
       }
+    }
     stage('Say Hello') {
       parallel {
         stage('Say Hello') {
