@@ -7,7 +7,8 @@ pipeline {
       }
     }
 
-    stages('Parallel execution') {
+    stage('Parallel execution') {
+      parallel {
         stage('build app') {
           agent {
             docker {
@@ -41,4 +42,5 @@ pipeline {
         }
       }
     }
+  }
 }
