@@ -8,19 +8,11 @@ pipeline {
     }
 
     stage('Parallel execution') {
-      parallel {
-        stage('Say Hello') {
-          steps {
-            sh 'echo "hello world"'
-          }
-        }
-
         stage('build app') {
           agent {
             docker {
               image 'gradle:jdk11'
             }
-
           }
           options {
             skipDefaultCheckout()
@@ -37,7 +29,6 @@ pipeline {
             docker {
               image 'gradle:jdk11'
             }
-
           }
           options {
             skipDefaultCheckout()
@@ -48,9 +39,6 @@ pipeline {
             junit 'app/build/test-results/test/TEST-*.xml'
           }
         }
-
       }
     }
-
-  }
 }
