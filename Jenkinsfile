@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Say Hello') {
       parallel {
-        stage('Say Hello') {
+        stage('welcome message') {
           steps {
             sh 'echo "Hello World!"'
           }
@@ -17,6 +17,7 @@ pipeline {
 
           }
           steps {
+            sh 'echo "It should build something here!"
             sh 'ci/build-app.sh'
           }
         }
