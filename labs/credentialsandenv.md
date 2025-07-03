@@ -24,7 +24,7 @@ We want our pipeline to push our new docker image up to dockerhub every time we 
 For this we need to use the credentials just made.
 Our scripts needs two things:
 
-* An environment variable called `docker_username` that is your username for docker hub.
+* An environment variable called `docker_username` that is your username for docker hub. This environment variable is used in the scripts in `ci` folder.
 * A set of credentials to make your pipeline login to Docker Hub.
 
 In the exercise you are both going to make a global environment variable, and a set of credentials only accessable to that particular stage that needs them.
@@ -61,7 +61,7 @@ steps {
 Couldn't it be nice if Jenkins asked before pushing to Docker hub?
 Try to see what you can implement with the [Input step](https://jenkins.io/doc/pipeline/steps/pipeline-input-step/).
 
-## Authenticate Jenkins to Github, the manual way
+## Extra Extra exercise: Authenticate Jenkins to Github, the manual way
 
 > This guide is for when you cannot use the Blue Ocean way of connecting Jenkins to GitHub through access token. If you are part of a training course, this is not needed unless told otherwise.
 
